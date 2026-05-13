@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mudhouse Cafe GTM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f5f0ea;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+      url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      z-index: 1000;
+    }
+
+    nav h1 {
+      color: #ffb347;
+      font-size: 28px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffb347;
+    }
+
+    .hero h2 {
+      font-size: 70px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 22px;
+      max-width: 700px;
+    }
+
+    .hero button {
+      margin-top: 30px;
+      padding: 15px 35px;
+      border: none;
+      background: #ffb347;
+      color: black;
+      font-size: 18px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: 600;
+    }
+
+    .hero button:hover {
+      background: white;
+    }
+
+    section {
+      padding: 90px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 45px;
+      color: #5b3a29;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #666;
+      font-size: 18px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .menu-card {
+      background: white;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .menu-card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+    }
+
+    .menu-content {
+      padding: 20px;
+    }
+
+    .menu-content h3 {
+      margin-bottom: 10px;
+      color: #5b3a29;
+    }
+
+    .price {
+      color: #ff7b00;
+      font-weight: 700;
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
+    .booking {
+      background: #5b3a29;
+      color: white;
+      border-radius: 30px;
+      padding: 50px;
+    }
+
+    .booking form,
+    .contact form,
+    .order-form form {
+      display: grid;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    input,
+    textarea,
+    select {
+      padding: 15px;
+      border-radius: 12px;
+      border: none;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    button.submit-btn {
+      background: #ffb347;
+      color: black;
+      border: none;
+      padding: 15px;
+      border-radius: 12px;
+      font-size: 18px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    button.submit-btn:hover {
+      background: white;
+    }
+
+    .contact {
+      background: #fff;
+      border-radius: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .contact-info {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .info-box {
+      background: #f8f3ed;
+      padding: 25px;
+      border-radius: 20px;
+    }
+
+    footer {
+      background: black;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 50px;
+    }
+
+    @media(max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero h2 {
+        font-size: 42px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .booking {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <h1>Mudhouse Cafe GTM</h1>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#booking">Booking</a></li>
+      <li><a href="#order">Order</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header id="home">
+    <div class="hero">
+      <h2>Welcome to Mudhouse Cafe GTM</h2>
+      <p>
+        Premium cafe experience in Ghatampur with delicious fast food,
+        refreshing coffee, authentic chai, burgers, pizza, pasta, fries,
+        sandwiches and more.
+      </p>
+
+      <button onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">
+        Explore Menu
+      </button>
+    </div>
+  </header>
+
+  <section id="menu">
+    <div class="section-title">
+      <h2>Our Menu</h2>
+      <p>Freshly prepared cafe specials and fast food items</p>
+    </div>
+
+    <div class="menu-grid">
+
+      <div class="menu-card">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1200&auto=format&fit=crop" alt="Burger">
+        <div class="menu-content">
+          <h3>Cheese Burger</h3>
+          <p>Loaded burger with fresh vegetables and cheese.</p>
+          <div class="price">₹149</div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop" alt="Pizza">
+        <div class="menu-content">
+          <h3>Farmhouse Pizza</h3>
+          <p>Cheesy pizza with loaded toppings and sauces.</p>
+          <div class="price">₹299</div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="https://images.unsplash.com/photo-1521389508051-d7ffb5dc8df4?q=80&w=1200&auto=format&fit=crop" alt="Pasta">
+        <div class="menu-content">
+          <h3>White Sauce Pasta</h3>
+          <p>Creamy pasta served with herbs and garlic bread.</p>
+          <div class="price">₹199</div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=1200&auto=format&fit=crop" alt="Coffee">
+        <div class="menu-content">
+          <h3>Cold Coffee</h3>
+          <p>Chilled creamy cold coffee with chocolate flavour.</p>
+          <div class="price">₹129</div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?q=80&w=1200&auto=format&fit=crop" alt="Chai">
+        <div class="menu-content">
+          <h3>Special Masala Chai</h3>
+          <p>Traditional Indian chai with rich flavour and aroma.</p>
+          <div class="price">₹49</div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707?q=80&w=1200&auto=format&fit=crop" alt="Fries">
+        <div class="menu-content">
+          <h3>French Fries</h3>
+          <p>Crispy fries served with spicy dip and sauces.</p>
+          <div class="price">₹99</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="booking">
+    <div class="booking">
+      <div class="section-title">
+        <h2 style="color:white;">Seat Booking</h2>
+        <p style="color:#ddd;">Reserve your table at Mudhouse Cafe GTM</p>
+      </div>
+
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <input type="date" required>
+        <input type="time" required>
+
+        <select required>
+          <option value="">Select Number of Guests</option>
+          <option>2 People</option>
+          <option>4 People</option>
+          <option>6 People</option>
+          <option>8+ People</option>
+        </select>
+
+        <textarea placeholder="Special Request"></textarea>
+
+        <button class="submit-btn" type="submit">Book Your Seat</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="order">
+    <div class="contact order-form">
+      <div class="section-title">
+        <h2>Online Order</h2>
+        <p>Order your favourite food directly from the cafe</p>
+      </div>
+
+      <form>
+        <input type="text" placeholder="Customer Name" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <input type="text" placeholder="Delivery Address" required>
+
+        <select required>
+          <option value="">Select Food Item</option>
+          <option>Cheese Burger</option>
+          <option>Farmhouse Pizza</option>
+          <option>White Sauce Pasta</option>
+          <option>Cold Coffee</option>
+          <option>Special Masala Chai</option>
+          <option>French Fries</option>
+        </select>
+
+        <input type="number" placeholder="Quantity" min="1" required>
+
+        <textarea placeholder="Additional Instructions"></textarea>
+
+        <button class="submit-btn" type="submit">Place Order</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <div class="section-title">
+        <h2>Contact Us</h2>
+        <p>Visit Mudhouse Cafe GTM in Ghatampur</p>
+      </div>
+
+      <div class="contact-info">
+
+        <div class="info-box">
+          <h3>Location</h3>
+          <p>Ghatampur, Uttar Pradesh, India</p>
+        </div>
+
+        <div class="info-box">
+          <h3>Phone</h3>
+          <p>+91 98765 43210</p>
+        </div>
+
+        <div class="info-box">
+          <h3>Email</h3>
+          <p>mudhousecafegtm@gmail.com</p>
+        </div>
+
+      </div>
+
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message"></textarea>
+
+        <button class="submit-btn" type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      © 2026 Mudhouse Cafe GTM | Ghatampur's Premium Cafe Experience
+    </p>
+  </footer>
+
+</body>
+</html>
